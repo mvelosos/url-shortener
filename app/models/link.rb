@@ -12,6 +12,9 @@
 #
 
 class Link < ApplicationRecord
+  validates :source_url, presence: true
+  
+  before_create :check_url
   after_create :generate_short, :scrape
 
   def generate_short
@@ -24,7 +27,13 @@ class Link < ApplicationRecord
   end
 
   def scrape
-    Scrape.perform_async(self.id)
+    ScrapeWorker.perform_async(self.id)
+  end
+
+  def check_url
+    if !self.source_url.include?('http://') || !self.source_url.include?('https://')
+      self.source_url = "https://#{self.source_url}"
+    end
   end
 
 end
