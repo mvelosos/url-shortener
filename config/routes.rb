@@ -1,8 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   root 'home#index'
 
-  get ':short' => 'links#show'
   get '/all'   => 'home#all'
-
   resources :links
+
+  get ':short' => 'links#show'
+
 end
