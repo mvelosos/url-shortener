@@ -4,7 +4,7 @@ class ScrapeWorker
   def perform(link_id)
     link = Link.find(link_id)
     agent = Mechanize.new
-    page = agent.get(link.given_url)
+    page = agent.get(link.source_url)
     link.title = page.title
     link.save
   end
