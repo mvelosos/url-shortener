@@ -12,6 +12,7 @@
 #
 
 class Link < ApplicationRecord
+  after_create :generate_short, :scrape
 
   def generate_short
     self.short = self.id.to_s(36)
@@ -20,6 +21,10 @@ class Link < ApplicationRecord
 
   def get_short_url
     ENV['DEFAULT_URL'] + self.short
+  end
+
+  def scrape
+    Scrape.perform_async(self.id)
   end
 
 end
