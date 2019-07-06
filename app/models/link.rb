@@ -18,4 +18,8 @@ class Link < ApplicationRecord
     self.save
   end
 
+  def get_short_url
+    ENV['DEFAULT_URL'] + self.short
+  end
+
 end
