@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'sidekiq'
 gem 'mechanize'
+gem 'will_paginate'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
