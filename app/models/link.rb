@@ -12,4 +12,10 @@
 #
 
 class Link < ApplicationRecord
+
+  def generate_short
+    self.short = self.id.to_s(36)
+    self.save
+  end
+
 end
