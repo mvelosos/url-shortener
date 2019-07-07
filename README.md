@@ -38,3 +38,27 @@ rails db:seed
 ```
 bundle exec rspec
 ```
+
+* Heroku Deploy: `Follow these steps`
+```
+heroku create app-name
+```
+```
+git push heroku master
+```
+```
+heroku run rake db:migrate
+```
+```
+heroku config:set BASE_URL=https://shrt.url/
+```
+```
+heroku addons:add redistogo
+```
+```
+heroku ps:scale worker+1
+```
+```
+heroku open
+```
+### Enjoy the application :)
