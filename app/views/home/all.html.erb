@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Source URL</th>
+        <th>Shorten URL</th>
+        <th>Title</th>
+        <th>Clicks</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.source_url %></td>
+          <td><%= link_to link.get_short_url, link.short, target: '_blank' %></td>
+          <td><%= link.title %></td>
+          <td><%= link.clicks %></td>
+          <td><%= link_to 'Show', link %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+<%= will_paginate @links %>
+
+<p class="bottom_nav"><%= link_to 'Check the most popular shorten links', root_path %></p>

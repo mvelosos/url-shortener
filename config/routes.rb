@@ -1,3 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Sidekiq::Web => '/sidekiq'
+  root 'home#index'
+
+  resources :links, only: [:show, :create]
+
+  get '/all'   => 'home#all'
+  get ':short' => 'links#show'
+
 end
