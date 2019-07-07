@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   root 'home#index'
 
-  get '/all'   => 'home#all'
-  resources :links
+  resources :links, only: [:show, :create]
 
+  get '/all'   => 'home#all'
   get ':short' => 'links#show'
 
 end
