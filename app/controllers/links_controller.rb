@@ -1,12 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show]
 
-  # GET /links
-  # GET /links.json
-  def index
-    @links = Link.all
-  end
-
   # GET /links/1
   # GET /links/1.json
   def show
