@@ -22,7 +22,10 @@ clone the repo
 type: bundle install
 create the database with: rails db:create
 populate database(if you want): rails db:seed
-access localhost:3000 and enjoy the application
+```
+Type thw following command to execute the application and access localhost:3000
+```
+bash start.sh
 ```
 
 * Database creation
