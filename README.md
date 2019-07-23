@@ -1,6 +1,6 @@
 # README
 
-This project was made for BlueCoding Challenge. the application started being an api, but was asked to implement pages to show the most clicked links. Then views were created.
+Rails app to create shorten URL's.
 
 * Ruby version:
 `2.6.0`
